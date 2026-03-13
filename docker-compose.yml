@@ -1,0 +1,17 @@
+version: "3.9"
+
+services:
+  mongo:
+    image: mongo:6.0                # MongoDB official image
+    container_name: blog-mongo
+    ports:
+      - "27017:27017"               # Localhost access
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example123
+      MONGO_INITDB_DATABASE: blogDB
+    volumes:
+      - mongo-data:/data/db         # Data persistence
+
+volumes:
+  mongo-data:
